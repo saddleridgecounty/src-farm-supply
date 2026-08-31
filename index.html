@@ -5,40 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Blackwood Farming Supply Co. | Saddle Ridge County</title>
-  <!-- Discord / Social Media Link Preview -->
 
-<meta property="og:type" content="website">
+  <!-- Discord / Social Preview -->
+  <meta property="og:type" content="website">
 
-<meta property="og:title"
-      content="Blackwood Farming Supply Co. — Current Prices">
+  <meta property="og:title"
+        content="Blackwood Farming Supply Co. — Current Prices">
 
-<meta property="og:description"
-      content="Your one-stop farming shop at Emerald Ranch. Fresh produce, pantry goods, medicinal herbs, grains, crops, spices & farming supplies.">
+  <meta property="og:description"
+        content="Your one-stop farming shop at Emerald Ranch. Fresh produce, pantry goods, medicinal herbs, grains, crops, spices & farming supplies.">
 
-<meta property="og:url"
-      content="https://saddleridgecounty.github.io/src-farm-supply/">
+  <meta property="og:url"
+        content="https://saddleridgecounty.github.io/src-farm-supply/">
 
-<meta property="og:image"
-      content="https://saddleridgecounty.github.io/src-farm-supply/images/farm-supply-preview.png">
+  <meta property="og:image"
+        content="https://saddleridgecounty.github.io/src-farm-supply/images/farm-supply-preview.png">
 
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
 
-<meta name="theme-color" content="#5a341e">
+  <meta name="theme-color" content="#2d1b10">
 
+  <!-- Large Social Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="twitter:title"
+        content="Blackwood Farming Supply Co. — Current Prices">
+
+  <meta name="twitter:description"
+        content="Your one-stop farming shop at Emerald Ranch. Fresh produce, pantry goods, medicinal herbs, grains, crops, spices & farming supplies.">
+
+  <meta name="twitter:image"
+        content="https://saddleridgecounty.github.io/src-farm-supply/images/farm-supply-preview.png">
+
+  <!-- Western Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Rye&family=Special+Elite&display=swap"
+        rel="stylesheet">
 
   <style>
     :root {
       --paper: #eadfbd;
-      --paper-light: #f4e9c9;
-      --paper-dark: #d6c28e;
-      --ink: #1f1a17;
-      --soft-ink: #4f4437;
-      --line: #6d604e;
-      --faded: #8b795d;
+      --paper-light: #f6eccf;
+      --paper-dark: #d6c18c;
+      --ink: #201713;
+      --ink-soft: #594a3b;
+      --line: #6f604c;
+      --dark: #2d1b10;
+      --accent: #8a5b2d;
     }
 
     * {
@@ -52,124 +69,153 @@
     body {
       margin: 0;
       color: var(--ink);
+      font-family: "Arvo", serif;
+
       background:
-        radial-gradient(circle at 15% 10%, rgba(255,255,255,.22), transparent 20%),
-        radial-gradient(circle at 80% 30%, rgba(83,60,30,.05), transparent 28%),
+        radial-gradient(
+          circle at 10% 5%,
+          rgba(255,255,255,.25),
+          transparent 23%
+        ),
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(80,50,20,.05),
+          transparent 30%
+        ),
         repeating-linear-gradient(
           0deg,
-          rgba(66,48,29,.018),
-          rgba(66,48,29,.018) 1px,
+          rgba(70,45,25,.018),
+          rgba(70,45,25,.018) 1px,
           transparent 1px,
           transparent 5px
         ),
         var(--paper);
-      font-family: "Arvo", serif;
     }
 
     a {
       color: inherit;
     }
 
-    .poster-top {
+    .top-banner {
+      background: var(--dark);
+      color: #f6e8bd;
       text-align: center;
-      padding: 44px 20px 30px;
-      border-bottom: 2px solid var(--ink);
+      padding: 8px 15px;
+
+      font-family: "Special Elite", monospace;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+
+      border-bottom: 2px solid var(--accent);
+    }
+
+    header {
       position: relative;
+      text-align: center;
+      padding: 44px 20px 32px;
+      border-bottom: 2px solid var(--ink);
     }
 
-    .poster-top::before {
-      content: "✦";
+    header::before,
+    header::after {
+      content: "★";
       position: absolute;
+      top: 45px;
+      font-size: 26px;
+      opacity: .7;
+    }
+
+    header::before {
       left: 7%;
-      top: 38px;
-      font-size: 30px;
-      opacity: .72;
     }
 
-    .poster-top::after {
-      content: "✦";
-      position: absolute;
+    header::after {
       right: 7%;
-      top: 38px;
-      font-size: 30px;
-      opacity: .72;
     }
 
     .county {
       font-family: "Special Elite", monospace;
-      letter-spacing: 4px;
       text-transform: uppercase;
+      letter-spacing: 4px;
       font-size: 13px;
       margin-bottom: 10px;
     }
 
     .business-name {
-      font-family: "Rye", serif;
-      font-size: clamp(34px, 6vw, 72px);
-      line-height: 1.05;
       margin: 0;
+
+      font-family: "Rye", serif;
+      font-size: clamp(36px, 6vw, 70px);
+      line-height: 1.05;
       text-transform: uppercase;
-      letter-spacing: 1px;
+
+      color: var(--ink);
     }
 
-    .relocating-line {
+    .location-label {
+      margin-top: 15px;
+
       font-family: "Special Elite", monospace;
-      font-size: 18px;
-      margin: 12px 0 0;
-      letter-spacing: 1px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
     }
 
     .location {
+      margin-top: 4px;
+
       font-family: "Special Elite", monospace;
-      font-size: 22px;
-      margin-top: 6px;
-      text-transform: uppercase;
+      font-size: 23px;
       letter-spacing: 3px;
-    }
-
-    .hero-shop-line {
-      margin: 26px auto 0;
-      font-family: "Rye", serif;
-      font-size: clamp(25px, 4vw, 42px);
       text-transform: uppercase;
-      line-height: 1.2;
-      max-width: 850px;
     }
 
-    .hero-shop-line .star {
+    .tagline {
+      max-width: 900px;
+      margin: 26px auto 0;
+
+      font-family: "Rye", serif;
+      font-size: clamp(25px, 4vw, 40px);
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .tagline .star {
       font-family: Georgia, serif;
       font-size: 20px;
-      vertical-align: middle;
-      margin: 0 10px;
+      margin: 0 9px;
     }
 
-    .owner-block {
-      margin-top: 24px;
+    .owner {
+      margin-top: 25px;
+
       font-family: "Special Elite", monospace;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.7;
-      letter-spacing: 1px;
+      letter-spacing: .6px;
     }
 
-    .owner-block strong {
+    .owner strong {
       font-family: "Arvo", serif;
     }
 
     .western-rule {
-      width: 310px;
-      max-width: 75%;
-      margin: 22px auto 0;
       display: flex;
       align-items: center;
       gap: 10px;
+
+      width: 300px;
+      max-width: 75%;
+      margin: 22px auto 0;
     }
 
     .western-rule::before,
     .western-rule::after {
       content: "";
+      flex: 1;
       height: 1px;
       background: var(--ink);
-      flex: 1;
     }
 
     .western-rule span {
@@ -177,60 +223,65 @@
     }
 
     .intro {
-      max-width: 860px;
+      max-width: 850px;
       margin: 20px auto 0;
-      padding: 0 20px;
-      text-align: center;
+      padding: 0 18px;
+
       font-family: "Special Elite", monospace;
-      color: var(--soft-ink);
-      line-height: 1.7;
+      color: var(--ink-soft);
       font-size: 15px;
+      line-height: 1.7;
     }
 
     nav {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(234, 223, 189, .97);
+
+      background: rgba(234,223,189,.97);
       border-top: 1px solid var(--ink);
       border-bottom: 2px solid var(--ink);
-      box-shadow: 0 3px 8px rgba(0,0,0,.08);
-      backdrop-filter: blur(3px);
+
+      box-shadow: 0 3px 9px rgba(0,0,0,.08);
+      backdrop-filter: blur(4px);
     }
 
     #categoryNav {
       max-width: 1120px;
-      margin: 0 auto;
-      padding: 10px 16px;
+      margin: auto;
+      padding: 10px 15px;
+
       display: flex;
       justify-content: center;
-      gap: 8px;
       flex-wrap: wrap;
+      gap: 7px;
     }
 
     #categoryNav a {
+      padding: 7px 10px;
+
       font-family: "Special Elite", monospace;
-      text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-size: 12px;
-      padding: 7px 10px;
+
+      text-decoration: none;
       border: 1px solid transparent;
     }
 
     #categoryNav a:hover {
       border-color: var(--ink);
-      background: rgba(255,255,255,.15);
+      background: rgba(255,255,255,.18);
     }
 
     main {
       max-width: 1120px;
-      margin: 0 auto;
-      padding: 40px 22px 70px;
+      margin: auto;
+      padding: 42px 22px 75px;
     }
 
     .category {
-      margin-bottom: 66px;
+      margin-bottom: 68px;
       scroll-margin-top: 90px;
     }
 
@@ -238,6 +289,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
+
       margin-bottom: 8px;
     }
 
@@ -250,66 +302,84 @@
     }
 
     .category-heading h2 {
-      font-family: "Rye", serif;
       margin: 0;
-      font-size: clamp(25px, 3vw, 34px);
+
+      font-family: "Rye", serif;
       text-transform: uppercase;
-      letter-spacing: 1px;
       text-align: center;
+
+      font-size: clamp(25px, 3vw, 34px);
+      letter-spacing: 1px;
     }
 
     .category-note {
-      font-family: "Special Elite", monospace;
-      text-align: center;
-      margin: 0 auto 26px;
       max-width: 760px;
-      color: var(--soft-ink);
+      margin: 0 auto 26px;
+
+      text-align: center;
+
+      font-family: "Special Elite", monospace;
       font-size: 14px;
       line-height: 1.6;
+      color: var(--ink-soft);
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      gap: 15px;
     }
 
     .product {
-      background:
-        linear-gradient(rgba(255,255,255,.11), rgba(255,255,255,.11)),
-        var(--paper-light);
-      border: 1px solid var(--ink);
-      min-height: 145px;
+      min-height: 165px;
       padding: 14px;
+
+      position: relative;
       display: flex;
       flex-direction: column;
-      position: relative;
-      box-shadow: 2px 3px 0 rgba(31,26,23,.08);
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,.12),
+          rgba(255,255,255,.12)
+        ),
+        var(--paper-light);
+
+      border: 1px solid var(--ink);
+
+      box-shadow:
+        2px 3px 0 rgba(30,20,15,.08);
     }
 
     .product::before {
       content: "";
       position: absolute;
       inset: 5px;
-      border: 1px solid rgba(31,26,23,.18);
+
+      border: 1px solid rgba(31,23,19,.18);
+
       pointer-events: none;
     }
 
     .product::after {
       content: "SRC";
+
       position: absolute;
       right: 9px;
       top: 8px;
+
       font-family: "Special Elite", monospace;
       font-size: 9px;
       letter-spacing: 1px;
-      opacity: .28;
+
+      opacity: .25;
       transform: rotate(-5deg);
     }
 
     .product-image-wrap {
-      height: 145px;
-      margin-bottom: 12px;
+      height: 170px;
+      margin-bottom: 13px;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -318,14 +388,19 @@
     .product-image {
       width: 100%;
       height: 100%;
+
       object-fit: contain;
-      display: block;
-      filter: sepia(.12) contrast(.96) saturate(.8);
+
+      filter:
+        sepia(.08)
+        saturate(.9)
+        contrast(.98);
     }
 
     .product h3 {
-      font-family: "Arvo", serif;
       margin: 0 0 12px;
+
+      font-family: "Arvo", serif;
       font-size: 18px;
       line-height: 1.3;
     }
@@ -333,63 +408,75 @@
     .product-footer {
       margin-top: auto;
       padding-top: 10px;
-      border-top: 1px dashed rgba(31,26,23,.4);
+
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 10px;
+
+      border-top: 1px dashed rgba(31,23,19,.42);
     }
 
     .price-label {
       font-family: "Special Elite", monospace;
+
       text-transform: uppercase;
       letter-spacing: 1.3px;
+
       font-size: 10px;
-      color: var(--soft-ink);
+      color: var(--ink-soft);
     }
 
     .price {
       font-family: "Rye", serif;
       font-size: 21px;
+
       white-space: nowrap;
     }
 
     #loading,
     #error {
-      font-family: "Special Elite", monospace;
-      text-align: center;
       padding: 60px 20px;
-      color: var(--soft-ink);
+      text-align: center;
+
+      font-family: "Special Elite", monospace;
       font-size: 17px;
+      color: var(--ink-soft);
     }
 
     footer {
-      border-top: 2px solid var(--ink);
       padding: 36px 20px;
+
       text-align: center;
-      background: rgba(121,94,58,.10);
+
+      background: rgba(90,65,40,.10);
+      border-top: 2px solid var(--ink);
     }
 
     .footer-title {
-      font-family: "Rye", serif;
-      font-size: 23px;
-      text-transform: uppercase;
       margin-bottom: 10px;
+
+      font-family: "Rye", serif;
+      font-size: 24px;
+      text-transform: uppercase;
     }
 
     .footer-contact {
       font-family: "Special Elite", monospace;
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .footer-small {
       margin-top: 10px;
+
       font-family: "Special Elite", monospace;
       font-size: 11px;
+
       letter-spacing: 1.2px;
       text-transform: uppercase;
-      color: var(--soft-ink);
+
+      color: var(--ink-soft);
     }
 
     @media (max-width: 900px) {
@@ -413,8 +500,8 @@
         white-space: nowrap;
       }
 
-      .poster-top::before,
-      .poster-top::after {
+      header::before,
+      header::after {
         display: none;
       }
     }
@@ -429,7 +516,7 @@
         padding-right: 14px;
       }
 
-      .hero-shop-line {
+      .tagline {
         font-size: 26px;
       }
     }
@@ -438,7 +525,11 @@
 
 <body>
 
-<header class="poster-top">
+<div class="top-banner">
+  Farm Goods • Fresh Produce • Herbs • Grains • Supplies
+</div>
+
+<header>
 
   <div class="county">
     Saddle Ridge County
@@ -448,7 +539,7 @@
     Blackwood Farming Supply Co.
   </h1>
 
-  <div class="relocating-line">
+  <div class="location-label">
     Proudly Serving
   </div>
 
@@ -456,13 +547,13 @@
     Emerald Ranch
   </div>
 
-  <div class="hero-shop-line">
+  <div class="tagline">
     <span class="star">★</span>
     Your One Stop Farming Shop
     <span class="star">★</span>
   </div>
 
-  <div class="owner-block">
+  <div class="owner">
     Owner: <strong>Clara Blackwood</strong><br>
     PO: <strong>BWWV1712</strong>
   </div>
@@ -501,7 +592,8 @@
 
   <div class="footer-contact">
     Emerald Ranch<br>
-    Owner: Clara Blackwood · PO: BWWV1712
+    Owner: Clara Blackwood<br>
+    PO: BWWV1712
   </div>
 
   <div class="footer-small">
@@ -516,222 +608,460 @@ const sheetURL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUjdVV1pWFRTlDyAsrJdl4vnHEwRIVjwdpAyhRJmQr4gkFkLOj9OyBdAwzNc20tjcCcpPW7NX03Uki/pub?gid=0&single=true&output=csv";
 
 function parseCSV(text) {
+
   const rows = [];
+
   let row = [];
   let cell = "";
   let insideQuotes = false;
 
   for (let i = 0; i < text.length; i++) {
+
     const char = text[i];
     const nextChar = text[i + 1];
 
-    if (char === '"' && insideQuotes && nextChar === '"') {
+    if (
+      char === '"' &&
+      insideQuotes &&
+      nextChar === '"'
+    ) {
+
       cell += '"';
       i++;
+
     }
+
     else if (char === '"') {
+
       insideQuotes = !insideQuotes;
+
     }
-    else if (char === "," && !insideQuotes) {
+
+    else if (
+      char === "," &&
+      !insideQuotes
+    ) {
+
       row.push(cell);
       cell = "";
+
     }
-    else if ((char === "\n" || char === "\r") && !insideQuotes) {
-      if (char === "\r" && nextChar === "\n") {
+
+    else if (
+      (char === "\n" || char === "\r") &&
+      !insideQuotes
+    ) {
+
+      if (
+        char === "\r" &&
+        nextChar === "\n"
+      ) {
+
         i++;
+
       }
 
       row.push(cell);
 
-      if (row.some(value => value.trim() !== "")) {
+      if (
+        row.some(
+          value => value.trim() !== ""
+        )
+      ) {
+
         rows.push(row);
+
       }
 
       row = [];
       cell = "";
+
     }
+
     else {
+
       cell += char;
+
     }
+
   }
 
   if (cell.length || row.length) {
+
     row.push(cell);
 
-    if (row.some(value => value.trim() !== "")) {
+    if (
+      row.some(
+        value => value.trim() !== ""
+      )
+    ) {
+
       rows.push(row);
+
     }
+
   }
 
   return rows;
+
 }
 
 function slugify(text) {
+
   return text
     .toLowerCase()
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+
 }
 
 async function loadCatalog() {
+
   try {
-    const response = await fetch(sheetURL);
+
+    const response =
+      await fetch(sheetURL);
 
     if (!response.ok) {
-      throw new Error("Could not load Google Sheet.");
+
+      throw new Error(
+        "Could not load Google Sheet."
+      );
+
     }
 
-    const csv = await response.text();
-    const rows = parseCSV(csv);
+    const csv =
+      await response.text();
 
-    const headers = rows[0].map(header => header.trim());
+    const rows =
+      parseCSV(csv);
 
-    const categoryIndex = headers.indexOf("Category");
-    const productIndex = headers.indexOf("Product");
-    const priceIndex = headers.indexOf("Price");
-    const notesIndex = headers.indexOf("Notes");
-    const imageIndex = headers.indexOf("Image");
+    const headers =
+      rows[0].map(
+        header => header.trim()
+      );
+
+    const categoryIndex =
+      headers.indexOf("Category");
+
+    const productIndex =
+      headers.indexOf("Product");
+
+    const priceIndex =
+      headers.indexOf("Price");
+
+    const notesIndex =
+      headers.indexOf("Notes");
+
+    const imageIndex =
+      headers.indexOf("Image");
 
     const categories = {};
 
-    rows.slice(1).forEach(row => {
-      const category = row[categoryIndex]?.trim();
-      const product = row[productIndex]?.trim();
-      const price = row[priceIndex]?.trim();
-      const notes = row[notesIndex]?.trim();
-      const image = row[imageIndex]?.trim();
+    rows
+      .slice(1)
+      .forEach(row => {
 
-      if (!category || !product) {
-        return;
-      }
+        const category =
+          row[categoryIndex]?.trim();
 
-      if (!categories[category]) {
-        categories[category] = {
-          note: "",
-          products: []
-        };
-      }
+        const product =
+          row[productIndex]?.trim();
 
-      if (notes && !categories[category].note) {
-        categories[category].note = notes;
-      }
+        const price =
+          row[priceIndex]?.trim();
 
-      categories[category].products.push({
-        product,
-        price,
-        image
+        const notes =
+          row[notesIndex]?.trim();
+
+        const image =
+          row[imageIndex]?.trim();
+
+        if (
+          !category ||
+          !product
+        ) {
+
+          return;
+
+        }
+
+        if (!categories[category]) {
+
+          categories[category] = {
+            note: "",
+            products: []
+          };
+
+        }
+
+        if (
+          notes &&
+          !categories[category].note
+        ) {
+
+          categories[category].note =
+            notes;
+
+        }
+
+        categories[category]
+          .products
+          .push({
+            product,
+            price,
+            image
+          });
+
       });
-    });
 
     buildNavigation(categories);
     buildCatalog(categories);
 
-    document.getElementById("loading").style.display = "none";
+    document
+      .getElementById("loading")
+      .style.display = "none";
+
   }
+
   catch(error) {
+
     console.error(error);
 
-    document.getElementById("loading").style.display = "none";
+    document
+      .getElementById("loading")
+      .style.display = "none";
 
-    document.getElementById("catalog").innerHTML =
+    document
+      .getElementById("catalog")
+      .innerHTML =
       '<div id="error">The farm catalog could not be opened at this time.</div>';
+
   }
+
 }
 
 function buildNavigation(categories) {
-  const nav = document.getElementById("categoryNav");
+
+  const nav =
+    document.getElementById(
+      "categoryNav"
+    );
 
   nav.innerHTML = "";
 
-  Object.keys(categories).forEach(category => {
-    const link = document.createElement("a");
+  Object
+    .keys(categories)
+    .forEach(category => {
 
-    link.href = "#" + slugify(category);
-    link.textContent = category;
+      const link =
+        document.createElement("a");
 
-    nav.appendChild(link);
-  });
+      link.href =
+        "#" + slugify(category);
+
+      link.textContent =
+        category;
+
+      nav.appendChild(link);
+
+    });
+
 }
 
 function buildCatalog(categories) {
-  const catalog = document.getElementById("catalog");
+
+  const catalog =
+    document.getElementById(
+      "catalog"
+    );
 
   catalog.innerHTML = "";
 
-  Object.entries(categories).forEach(([categoryName, categoryData]) => {
-    const section = document.createElement("section");
+  Object
+    .entries(categories)
+    .forEach(
+      ([categoryName, categoryData]) => {
 
-    section.className = "category";
-    section.id = slugify(categoryName);
+        const section =
+          document.createElement(
+            "section"
+          );
 
-    const headingWrap = document.createElement("div");
-    headingWrap.className = "category-heading";
+        section.className =
+          "category";
 
-    const title = document.createElement("h2");
-    title.textContent = categoryName;
+        section.id =
+          slugify(categoryName);
 
-    headingWrap.appendChild(title);
-    section.appendChild(headingWrap);
+        const heading =
+          document.createElement(
+            "div"
+          );
 
-    if (categoryData.note) {
-      const note = document.createElement("p");
+        heading.className =
+          "category-heading";
 
-      note.className = "category-note";
-      note.textContent = categoryData.note;
+        const title =
+          document.createElement(
+            "h2"
+          );
 
-      section.appendChild(note);
-    }
+        title.textContent =
+          categoryName;
 
-    const productGrid = document.createElement("div");
-    productGrid.className = "products";
+        heading.appendChild(title);
 
-    categoryData.products.forEach(item => {
-      const productCard = document.createElement("article");
-      productCard.className = "product";
+        section.appendChild(
+          heading
+        );
 
-      if (item.image) {
-        const imageWrap = document.createElement("div");
-        imageWrap.className = "product-image-wrap";
+        if (categoryData.note) {
 
-        const img = document.createElement("img");
+          const note =
+            document.createElement(
+              "p"
+            );
 
-        img.src = item.image;
-        img.alt = item.product;
-        img.className = "product-image";
-        img.loading = "lazy";
+          note.className =
+            "category-note";
 
-        imageWrap.appendChild(img);
-        productCard.appendChild(imageWrap);
+          note.textContent =
+            categoryData.note;
+
+          section.appendChild(note);
+
+        }
+
+        const productGrid =
+          document.createElement(
+            "div"
+          );
+
+        productGrid.className =
+          "products";
+
+        categoryData
+          .products
+          .forEach(item => {
+
+            const card =
+              document.createElement(
+                "article"
+              );
+
+            card.className =
+              "product";
+
+            if (item.image) {
+
+              const imageWrap =
+                document.createElement(
+                  "div"
+                );
+
+              imageWrap.className =
+                "product-image-wrap";
+
+              const img =
+                document.createElement(
+                  "img"
+                );
+
+              img.src =
+                "images/" + item.image;
+
+              img.alt =
+                item.product;
+
+              img.className =
+                "product-image";
+
+              img.loading =
+                "lazy";
+
+              imageWrap.appendChild(
+                img
+              );
+
+              card.appendChild(
+                imageWrap
+              );
+
+            }
+
+            const productName =
+              document.createElement(
+                "h3"
+              );
+
+            productName.textContent =
+              item.product;
+
+            card.appendChild(
+              productName
+            );
+
+            const productFooter =
+              document.createElement(
+                "div"
+              );
+
+            productFooter.className =
+              "product-footer";
+
+            const priceLabel =
+              document.createElement(
+                "span"
+              );
+
+            priceLabel.className =
+              "price-label";
+
+            priceLabel.textContent =
+              "Price";
+
+            const price =
+              document.createElement(
+                "span"
+              );
+
+            price.className =
+              "price";
+
+            price.textContent =
+              item.price;
+
+            productFooter.appendChild(
+              priceLabel
+            );
+
+            productFooter.appendChild(
+              price
+            );
+
+            card.appendChild(
+              productFooter
+            );
+
+            productGrid.appendChild(
+              card
+            );
+
+          });
+
+        section.appendChild(
+          productGrid
+        );
+
+        catalog.appendChild(
+          section
+        );
+
       }
+    );
 
-      const productName = document.createElement("h3");
-      productName.textContent = item.product;
-
-      productCard.appendChild(productName);
-
-      const productFooter = document.createElement("div");
-      productFooter.className = "product-footer";
-
-      const priceLabel = document.createElement("span");
-      priceLabel.className = "price-label";
-      priceLabel.textContent = "Price";
-
-      const price = document.createElement("span");
-      price.className = "price";
-      price.textContent = item.price;
-
-      productFooter.appendChild(priceLabel);
-      productFooter.appendChild(price);
-
-      productCard.appendChild(productFooter);
-
-      productGrid.appendChild(productCard);
-    });
-
-    section.appendChild(productGrid);
-    catalog.appendChild(section);
-  });
 }
 
 loadCatalog();
