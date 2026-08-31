@@ -4,137 +4,411 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Saddle Ridge County Farm Supply</title>
+  <title>Blackwood Farm Supply Co. | Saddle Ridge County</title>
 
   <style>
+    :root {
+      --paper: #efe1ba;
+      --paper-light: #f7edcf;
+      --paper-dark: #d7c18f;
+      --ink: #25180f;
+      --brown: #5b3b24;
+      --brown-dark: #362317;
+      --gold: #9a7538;
+      --line: #7e6542;
+      --muted: #6d5b43;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #efe3c2;
-      color: #2f2418;
       margin: 0;
-      padding: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.25), transparent 35%),
+        repeating-linear-gradient(
+          0deg,
+          rgba(90, 67, 35, 0.025),
+          rgba(90, 67, 35, 0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        ),
+        var(--paper);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .top-strip {
+      background: var(--brown-dark);
+      color: var(--paper-light);
+      text-align: center;
+      padding: 7px 15px;
+      font-size: 13px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
     }
 
     header {
       text-align: center;
-      padding: 38px 20px 24px;
-      border-bottom: 3px solid #4b3825;
+      padding: 42px 20px 26px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .county {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 8px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 42px;
+      font-size: clamp(36px, 6vw, 66px);
+      line-height: 1;
+      letter-spacing: 1px;
     }
 
-    header p {
-      margin: 8px 0 0;
+    .subtitle {
+      margin-top: 11px;
       font-size: 18px;
+      font-style: italic;
+      color: var(--brown);
+    }
+
+    .established {
+      margin-top: 11px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .ornament {
+      width: 240px;
+      max-width: 70%;
+      height: 1px;
+      background: var(--line);
+      margin: 20px auto 0;
+      position: relative;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "◆";
+      position: absolute;
+      top: -9px;
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .ornament::before {
+      left: 42%;
+    }
+
+    .ornament::after {
+      right: 42%;
+    }
+
+    .catalog-intro {
+      max-width: 920px;
+      margin: 28px auto 0;
+      padding: 0 20px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15px;
     }
 
     nav {
-      text-align: center;
-      padding: 16px 20px;
-      border-bottom: 1px solid #806b4e;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(239, 225, 186, 0.97);
+      border-top: 1px solid var(--line);
+      border-bottom: 2px solid var(--brown);
+      box-shadow: 0 4px 10px rgba(50, 32, 18, 0.08);
+      backdrop-filter: blur(3px);
     }
 
-    nav a {
-      display: inline-block;
-      margin: 5px 8px;
-      color: #2f2418;
-      font-weight: bold;
+    #categoryNav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    #categoryNav a {
       text-decoration: none;
+      border: 1px solid transparent;
+      padding: 7px 10px;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--brown-dark);
+      transition: 0.2s ease;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    #categoryNav a:hover {
+      border-color: var(--line);
+      background: rgba(255,255,255,.24);
     }
 
     main {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 30px 20px 60px;
+      padding: 36px 22px 70px;
     }
 
     .category {
-      margin-bottom: 50px;
+      margin-bottom: 58px;
+      scroll-margin-top: 90px;
     }
 
-    .category h2 {
-      font-size: 30px;
-      margin-bottom: 5px;
-      border-bottom: 2px solid #4b3825;
-      padding-bottom: 8px;
+    .category-heading {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .category-heading::before,
+    .category-heading::after {
+      content: "";
+      height: 1px;
+      background: var(--line);
+    }
+
+    .category-heading h2 {
+      margin: 0;
+      text-align: center;
+      font-size: 31px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--brown-dark);
     }
 
     .category-note {
-      margin-top: 0;
-      margin-bottom: 20px;
+      text-align: center;
+      margin: 0 auto 24px;
+      max-width: 720px;
+      color: var(--muted);
       font-style: italic;
-      color: #5f4c36;
+      line-height: 1.5;
     }
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
     }
 
     .product {
-      border: 1px solid #806b4e;
-      background: rgba(255,255,255,.22);
-      padding: 16px;
-      border-radius: 4px;
+      background:
+        linear-gradient(rgba(255,255,255,.13), rgba(255,255,255,.13)),
+        var(--paper-light);
+      border: 1px solid var(--line);
+      box-shadow:
+        inset 0 0 0 3px rgba(255,255,255,.12),
+        0 3px 8px rgba(54,35,23,.06);
+      min-height: 130px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
     }
 
-    .product h3 {
-      margin: 0 0 10px;
-      font-size: 19px;
+    .product::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(126, 101, 66, 0.22);
+      pointer-events: none;
     }
 
-    .price {
-      font-size: 20px;
-      font-weight: bold;
+    .product-image-wrap {
+      height: 145px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .product-image {
       width: 100%;
-      height: 160px;
+      height: 100%;
       object-fit: contain;
-      margin-bottom: 12px;
+      display: block;
+      filter: sepia(.08) saturate(.9);
+    }
+
+    .product h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .product-footer {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dotted rgba(91, 59, 36, .45);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .price-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 10px;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+      color: var(--brown-dark);
+      white-space: nowrap;
     }
 
     #loading,
     #error {
       text-align: center;
+      padding: 60px 20px;
       font-size: 18px;
-      padding: 40px 20px;
+      color: var(--muted);
     }
 
     footer {
+      background: var(--brown-dark);
+      color: var(--paper-light);
       text-align: center;
-      padding: 25px 20px;
-      border-top: 2px solid #4b3825;
-      font-size: 14px;
+      padding: 28px 20px;
+      border-top: 3px double var(--gold);
+    }
+
+    .footer-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .footer-small {
+      font-size: 12px;
+      letter-spacing: 1.1px;
+      opacity: .85;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding-top: 30px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .category-heading h2 {
+        font-size: 25px;
+      }
+
+      #categoryNav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+
+      #categoryNav a {
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .product {
+        min-height: 110px;
+      }
+
+      .catalog-intro {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+<div class="top-strip">
+  Quality Goods for Farms, Kitchens & County Trade
+</div>
+
 <header>
-  <h1>Saddle Ridge County</h1>
-  <p>Farm Supply & Agricultural Goods</p>
+  <div class="county">Saddle Ridge County</div>
+
+  <h1>Blackwood Farm Supply Co.</h1>
+
+  <div class="subtitle">
+    Farm Goods, Produce & Agricultural Provisions
+  </div>
+
+  <div class="established">
+    Established 1895
+  </div>
+
+  <div class="ornament"></div>
+
+  <div class="catalog-intro">
+    A dependable selection of farm-grown goods, provisions, herbs,
+    crops and supplies for the hardworking citizens and businesses
+    of Saddle Ridge County.
+  </div>
 </header>
 
-<nav id="categoryNav"></nav>
+<nav>
+  <div id="categoryNav"></div>
+</nav>
 
 <main>
-  <div id="loading">Loading farm catalog...</div>
+  <div id="loading">Opening the farm catalog...</div>
   <div id="catalog"></div>
 </main>
 
 <footer>
-  Saddle Ridge County Farm Supply
+  <div class="footer-title">Blackwood Farm Supply Co.</div>
+  <div class="footer-small">
+    Saddle Ridge County · Agricultural Goods & Provisions
+  </div>
 </footer>
 
 <script>
@@ -164,6 +438,7 @@ function parseCSV(text) {
       cell = "";
     }
     else if ((char === "\n" || char === "\r") && !insideQuotes) {
+
       if (char === "\r" && nextChar === "\n") {
         i++;
       }
@@ -183,6 +458,7 @@ function parseCSV(text) {
   }
 
   if (cell.length || row.length) {
+
     row.push(cell);
 
     if (row.some(value => value.trim() !== "")) {
@@ -261,7 +537,6 @@ async function loadCatalog() {
     document.getElementById("loading").style.display = "none";
 
   }
-
   catch(error) {
 
     console.error(error);
@@ -269,16 +544,13 @@ async function loadCatalog() {
     document.getElementById("loading").style.display = "none";
 
     document.getElementById("catalog").innerHTML =
-      '<div id="error">Unable to load the farm catalog.</div>';
-
+      '<div id="error">The farm catalog could not be opened at this time.</div>';
   }
-
 }
 
 function buildNavigation(categories) {
 
   const nav = document.getElementById("categoryNav");
-
   nav.innerHTML = "";
 
   Object.keys(categories).forEach(category => {
@@ -289,15 +561,12 @@ function buildNavigation(categories) {
     link.textContent = category;
 
     nav.appendChild(link);
-
   });
-
 }
 
 function buildCatalog(categories) {
 
   const catalog = document.getElementById("catalog");
-
   catalog.innerHTML = "";
 
   Object.entries(categories).forEach(([categoryName, categoryData]) => {
@@ -307,10 +576,14 @@ function buildCatalog(categories) {
     section.className = "category";
     section.id = slugify(categoryName);
 
+    const headingWrap = document.createElement("div");
+    headingWrap.className = "category-heading";
+
     const title = document.createElement("h2");
     title.textContent = categoryName;
 
-    section.appendChild(title);
+    headingWrap.appendChild(title);
+    section.appendChild(headingWrap);
 
     if (categoryData.note) {
 
@@ -320,7 +593,6 @@ function buildCatalog(categories) {
       note.textContent = categoryData.note;
 
       section.appendChild(note);
-
     }
 
     const productGrid = document.createElement("div");
@@ -328,41 +600,52 @@ function buildCatalog(categories) {
 
     categoryData.products.forEach(item => {
 
-      const productCard = document.createElement("div");
+      const productCard = document.createElement("article");
       productCard.className = "product";
 
       if (item.image) {
+
+        const imageWrap = document.createElement("div");
+        imageWrap.className = "product-image-wrap";
 
         const img = document.createElement("img");
 
         img.src = item.image;
         img.alt = item.product;
         img.className = "product-image";
+        img.loading = "lazy";
 
-        productCard.appendChild(img);
-
+        imageWrap.appendChild(img);
+        productCard.appendChild(imageWrap);
       }
 
       const productName = document.createElement("h3");
       productName.textContent = item.product;
 
-      const price = document.createElement("div");
+      productCard.appendChild(productName);
+
+      const footer = document.createElement("div");
+      footer.className = "product-footer";
+
+      const priceLabel = document.createElement("span");
+      priceLabel.className = "price-label";
+      priceLabel.textContent = "Price";
+
+      const price = document.createElement("span");
       price.className = "price";
       price.textContent = item.price;
 
-      productCard.appendChild(productName);
-      productCard.appendChild(price);
+      footer.appendChild(priceLabel);
+      footer.appendChild(price);
+
+      productCard.appendChild(footer);
 
       productGrid.appendChild(productCard);
-
     });
 
     section.appendChild(productGrid);
-
     catalog.appendChild(section);
-
   });
-
 }
 
 loadCatalog();
