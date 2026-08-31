@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Saddle Ridge County Farm Supply</title>
+
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background: #efe3c2;
+      color: #2f2418;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 25px;
+      border-bottom: 3px solid #4b3825;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 18px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .category {
+      margin-bottom: 40px;
+    }
+
+    .category h2 {
+      border-bottom: 2px solid #4b3825;
+      padding-bottom: 8px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .product {
+      border: 1px solid #806b4e;
+      background: rgba(255,255,255,.25);
+      padding: 18px;
+      border-radius: 4px;
+    }
+
+    .product h3 {
+      margin-top: 0;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    #loading {
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Saddle Ridge County</h1>
+  <p>Farm Supply & Agricultural Goods</p>
+</header>
+
+<main>
+
+  <div id="loading">
+    Loading farm catalog...
+  </div>
+
+  <div id="catalog"></div>
+
+</main>
+
+<script>
+
+const sheetURL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vSUjdVV1pWFRTlDyAsrJdl4vnHEwRIVjwdpAyhRJmQr4gkFkLOj9OyBdAwzNc20tjcCcpPW7NX03Uki/pub?gid=0&single=true&output=csv";
+
+async function loadCatalog() {
+
+  try {
+
+    const response = await fetch(sheetURL);
+
+    const csv = await response.text();
+
+    console.log(csv);
+
+    document.getElementById("loading").innerHTML =
+      "Google Sheet connected successfully.";
+
+  }
+
+  catch(error) {
+
+    document.getElementById("loading").innerHTML =
+      "Unable to load farm catalog.";
+
+    console.error(error);
+
+  }
+
+}
+
+loadCatalog();
+
+</script>
+
+</body>
+</html>
