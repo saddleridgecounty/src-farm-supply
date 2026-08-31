@@ -4,20 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Blackwood Farm Supply Co. | Saddle Ridge County</title>
+  <title>Blackwood Farming Supply Co. | Saddle Ridge County</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --paper: #ead7a6;
-      --paper-light: #f7edcf;
-      --paper-deep: #d8bf82;
-      --ink: #24150b;
-      --brown: #5a341e;
-      --brown-dark: #311b10;
-      --leather: #6f4226;
-      --gold: #a97831;
-      --line: #7d5b36;
-      --muted: #705a3f;
+      --paper: #eadfbd;
+      --paper-light: #f4e9c9;
+      --paper-dark: #d6c28e;
+      --ink: #1f1a17;
+      --soft-ink: #4f4437;
+      --line: #6d604e;
+      --faded: #8b795d;
     }
 
     * {
@@ -30,151 +31,157 @@
 
     body {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
       color: var(--ink);
       background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.22), transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(83,60,30,.05), transparent 28%),
         repeating-linear-gradient(
           0deg,
-          rgba(88, 58, 29, 0.025),
-          rgba(88, 58, 29, 0.025) 1px,
+          rgba(66,48,29,.018),
+          rgba(66,48,29,.018) 1px,
           transparent 1px,
-          transparent 4px
+          transparent 5px
         ),
-        radial-gradient(circle at top, rgba(255,255,255,.18), transparent 40%),
         var(--paper);
+      font-family: "Arvo", serif;
     }
 
     a {
       color: inherit;
     }
 
-    .top-strip {
-      background: var(--brown-dark);
-      color: #f9ebc5;
+    .poster-top {
       text-align: center;
-      padding: 8px 16px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 2px solid var(--gold);
+      padding: 44px 20px 30px;
+      border-bottom: 2px solid var(--ink);
+      position: relative;
     }
 
-    header {
-      text-align: center;
-      padding: 42px 20px 30px;
-      position: relative;
-      border-bottom: 3px double var(--brown);
-      background:
-        linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.08)),
-        var(--paper);
+    .poster-top::before {
+      content: "✦";
+      position: absolute;
+      left: 7%;
+      top: 38px;
+      font-size: 30px;
+      opacity: .72;
+    }
+
+    .poster-top::after {
+      content: "✦";
+      position: absolute;
+      right: 7%;
+      top: 38px;
+      font-size: 30px;
+      opacity: .72;
     }
 
     .county {
-      font-size: 14px;
+      font-family: "Special Elite", monospace;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--brown);
+      font-size: 13px;
       margin-bottom: 10px;
     }
 
-    header h1 {
+    .business-name {
+      font-family: "Rye", serif;
+      font-size: clamp(34px, 6vw, 72px);
+      line-height: 1.05;
       margin: 0;
-      font-size: clamp(40px, 6vw, 70px);
-      line-height: .95;
-      color: var(--brown-dark);
-      text-shadow: 0 1px 0 rgba(255,255,255,.25);
-    }
-
-    .subtitle {
-      margin-top: 12px;
-      font-size: 19px;
-      font-style: italic;
-      color: var(--brown);
-    }
-
-    .established {
-      margin-top: 12px;
-      font-size: 12px;
-      letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--muted);
+      letter-spacing: 1px;
     }
 
-    .western-divider {
-      width: 290px;
+    .relocating-line {
+      font-family: "Special Elite", monospace;
+      font-size: 18px;
+      margin: 12px 0 0;
+      letter-spacing: 1px;
+    }
+
+    .location {
+      font-family: "Special Elite", monospace;
+      font-size: 22px;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .hero-shop-line {
+      margin: 26px auto 0;
+      font-family: "Rye", serif;
+      font-size: clamp(25px, 4vw, 42px);
+      text-transform: uppercase;
+      line-height: 1.2;
+      max-width: 850px;
+    }
+
+    .hero-shop-line .star {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+
+    .owner-block {
+      margin-top: 24px;
+      font-family: "Special Elite", monospace;
+      font-size: 17px;
+      line-height: 1.7;
+      letter-spacing: 1px;
+    }
+
+    .owner-block strong {
+      font-family: "Arvo", serif;
+    }
+
+    .western-rule {
+      width: 310px;
       max-width: 75%;
-      margin: 18px auto;
+      margin: 22px auto 0;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .western-divider::before,
-    .western-divider::after {
+    .western-rule::before,
+    .western-rule::after {
       content: "";
       height: 1px;
-      background: var(--line);
+      background: var(--ink);
       flex: 1;
     }
 
-    .western-divider span {
-      color: var(--gold);
-      font-size: 17px;
+    .western-rule span {
+      font-size: 13px;
     }
 
-    .catalog-intro {
+    .intro {
       max-width: 860px;
-      margin: 0 auto;
+      margin: 20px auto 0;
       padding: 0 20px;
       text-align: center;
-      color: var(--muted);
-      line-height: 1.65;
+      font-family: "Special Elite", monospace;
+      color: var(--soft-ink);
+      line-height: 1.7;
       font-size: 15px;
-    }
-
-    .proprietor {
-      margin: 20px auto 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--brown);
-    }
-
-    .proprietor .label {
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: 1.7px;
-      color: var(--muted);
-    }
-
-    .proprietor strong {
-      color: var(--brown-dark);
-      font-size: 14px;
-    }
-
-    .proprietor .divider {
-      color: var(--gold);
-      margin: 0 4px;
     }
 
     nav {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(231, 211, 164, 0.97);
-      border-top: 1px solid var(--line);
-      border-bottom: 3px solid var(--brown);
-      box-shadow: 0 4px 10px rgba(50, 30, 15, .10);
+      background: rgba(234, 223, 189, .97);
+      border-top: 1px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      box-shadow: 0 3px 8px rgba(0,0,0,.08);
       backdrop-filter: blur(3px);
     }
 
     #categoryNav {
       max-width: 1120px;
-      margin: auto;
-      padding: 12px 18px;
+      margin: 0 auto;
+      padding: 10px 16px;
       display: flex;
       justify-content: center;
       gap: 8px;
@@ -182,85 +189,63 @@
     }
 
     #categoryNav a {
+      font-family: "Special Elite", monospace;
       text-decoration: none;
-      padding: 7px 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      padding: 7px 10px;
       border: 1px solid transparent;
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--brown-dark);
-      transition: .2s ease;
     }
 
     #categoryNav a:hover {
-      border-color: var(--brown);
-      background: rgba(255,255,255,.18);
-      box-shadow: inset 0 0 0 2px rgba(111,66,38,.08);
+      border-color: var(--ink);
+      background: rgba(255,255,255,.15);
     }
 
     main {
       max-width: 1120px;
-      margin: auto;
-      padding: 38px 22px 74px;
+      margin: 0 auto;
+      padding: 40px 22px 70px;
     }
 
     .category {
-      margin-bottom: 64px;
+      margin-bottom: 66px;
       scroll-margin-top: 90px;
     }
 
     .category-heading {
-      position: relative;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 14px;
       margin-bottom: 8px;
     }
 
     .category-heading::before,
     .category-heading::after {
       content: "";
-      position: absolute;
-      top: 50%;
-      width: 36%;
       height: 1px;
-      background: var(--line);
-    }
-
-    .category-heading::before {
-      left: 0;
-    }
-
-    .category-heading::after {
-      right: 0;
+      background: var(--ink);
+      flex: 1;
     }
 
     .category-heading h2 {
-      display: inline-block;
-      position: relative;
-      z-index: 1;
+      font-family: "Rye", serif;
       margin: 0;
-      padding: 0 18px;
-      background: var(--paper);
-      font-size: 30px;
+      font-size: clamp(25px, 3vw, 34px);
       text-transform: uppercase;
-      letter-spacing: 1.4px;
-      color: var(--brown-dark);
-    }
-
-    .category-heading h2::before,
-    .category-heading h2::after {
-      content: "✦";
-      color: var(--gold);
-      font-size: 12px;
-      vertical-align: middle;
-      margin: 0 8px;
+      letter-spacing: 1px;
+      text-align: center;
     }
 
     .category-note {
+      font-family: "Special Elite", monospace;
       text-align: center;
       margin: 0 auto 26px;
       max-width: 760px;
-      color: var(--muted);
-      font-style: italic;
-      line-height: 1.5;
+      color: var(--soft-ink);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .products {
@@ -271,41 +256,39 @@
 
     .product {
       background:
-        linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.12)),
+        linear-gradient(rgba(255,255,255,.11), rgba(255,255,255,.11)),
         var(--paper-light);
-      border: 1px solid var(--brown);
-      box-shadow:
-        inset 0 0 0 4px rgba(255,255,255,.12),
-        0 3px 8px rgba(53, 30, 15, .07);
+      border: 1px solid var(--ink);
       min-height: 145px;
       padding: 14px;
       display: flex;
       flex-direction: column;
       position: relative;
-      overflow: hidden;
+      box-shadow: 2px 3px 0 rgba(31,26,23,.08);
     }
 
     .product::before {
       content: "";
       position: absolute;
       inset: 5px;
-      border: 1px solid rgba(92, 55, 31, .2);
+      border: 1px solid rgba(31,26,23,.18);
       pointer-events: none;
     }
 
     .product::after {
-      content: "S.R.C.";
+      content: "SRC";
       position: absolute;
-      right: 10px;
+      right: 9px;
       top: 8px;
+      font-family: "Special Elite", monospace;
       font-size: 9px;
-      letter-spacing: 1.2px;
-      color: rgba(90,52,30,.28);
-      transform: rotate(-4deg);
+      letter-spacing: 1px;
+      opacity: .28;
+      transform: rotate(-5deg);
     }
 
     .product-image-wrap {
-      height: 150px;
+      height: 145px;
       margin-bottom: 12px;
       display: flex;
       align-items: center;
@@ -317,115 +300,102 @@
       height: 100%;
       object-fit: contain;
       display: block;
-      filter: sepia(.07) saturate(.9);
+      filter: sepia(.12) contrast(.96) saturate(.8);
     }
 
     .product h3 {
+      font-family: "Arvo", serif;
       margin: 0 0 12px;
       font-size: 18px;
-      line-height: 1.25;
-      color: var(--brown-dark);
+      line-height: 1.3;
     }
 
     .product-footer {
       margin-top: auto;
-      padding-top: 11px;
-      border-top: 1px dotted rgba(91, 59, 36, .5);
+      padding-top: 10px;
+      border-top: 1px dashed rgba(31,26,23,.4);
       display: flex;
-      justify-content: space-between;
       align-items: baseline;
+      justify-content: space-between;
       gap: 10px;
     }
 
     .price-label {
-      color: var(--muted);
+      font-family: "Special Elite", monospace;
       text-transform: uppercase;
-      letter-spacing: 1.4px;
-      font-size: 9px;
+      letter-spacing: 1.3px;
+      font-size: 10px;
+      color: var(--soft-ink);
     }
 
     .price {
-      font-size: 22px;
-      font-weight: bold;
-      color: var(--brown-dark);
+      font-family: "Rye", serif;
+      font-size: 21px;
       white-space: nowrap;
     }
 
     #loading,
     #error {
+      font-family: "Special Elite", monospace;
       text-align: center;
       padding: 60px 20px;
-      font-size: 18px;
-      color: var(--muted);
+      color: var(--soft-ink);
+      font-size: 17px;
     }
 
     footer {
-      background: var(--brown-dark);
-      color: #f6e8c0;
+      border-top: 2px solid var(--ink);
+      padding: 36px 20px;
       text-align: center;
-      padding: 32px 20px;
-      border-top: 3px double var(--gold);
+      background: rgba(121,94,58,.10);
     }
 
     .footer-title {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 8px;
+      font-family: "Rye", serif;
+      font-size: 23px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     .footer-contact {
+      font-family: "Special Elite", monospace;
       font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .footer-contact strong {
-      color: #fff2c9;
+      line-height: 1.7;
     }
 
     .footer-small {
+      margin-top: 10px;
+      font-family: "Special Elite", monospace;
       font-size: 11px;
-      letter-spacing: 1.4px;
-      opacity: .82;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
+      color: var(--soft-ink);
     }
 
     @media (max-width: 900px) {
       .products {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
-
-      .category-heading::before,
-      .category-heading::after {
-        width: 30%;
-      }
     }
 
     @media (max-width: 700px) {
-      header {
-        padding-top: 30px;
-      }
-
       .products {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .category-heading h2 {
-        font-size: 24px;
-      }
-
-      .category-heading::before,
-      .category-heading::after {
-        width: 22%;
-      }
-
       #categoryNav {
         justify-content: flex-start;
-        overflow-x: auto;
         flex-wrap: nowrap;
+        overflow-x: auto;
       }
 
       #categoryNav a {
         white-space: nowrap;
+      }
+
+      .poster-top::before,
+      .poster-top::after {
+        display: none;
       }
     }
 
@@ -439,22 +409,8 @@
         padding-right: 14px;
       }
 
-      .category-heading::before,
-      .category-heading::after {
-        display: none;
-      }
-
-      .catalog-intro {
-        font-size: 14px;
-      }
-
-      .proprietor {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .proprietor .divider {
-        display: none;
+      .hero-shop-line {
+        font-size: 26px;
       }
     }
   </style>
@@ -462,60 +418,43 @@
 
 <body>
 
-<div class="top-strip">
-  Quality Goods for Farms, Kitchens & County Trade
-</div>
-
-<header>
+<header class="poster-top">
 
   <div class="county">
     Saddle Ridge County
   </div>
 
-  <h1>
-    Blackwood Farm Supply Co.
+  <h1 class="business-name">
+    Blackwood Farming Supply Co.
   </h1>
 
-  <div class="subtitle">
-    Farm Goods, Produce & Agricultural Provisions
+  <div class="relocating-line">
+    Proudly Serving
   </div>
 
-  <div class="established">
-    Established 1895
+  <div class="location">
+    Emerald Ranch
   </div>
 
-  <div class="western-divider">
+  <div class="hero-shop-line">
+    <span class="star">★</span>
+    Your One Stop Farming Shop
+    <span class="star">★</span>
+  </div>
+
+  <div class="owner-block">
+    Owner: <strong>Clara Blackwood</strong><br>
+    PO: <strong>BWWV1712</strong>
+  </div>
+
+  <div class="western-rule">
     <span>◆</span>
   </div>
 
-  <div class="catalog-intro">
-    A dependable selection of farm-grown goods, provisions, herbs,
-    crops and supplies for the hardworking citizens and businesses
-    of Saddle Ridge County.
-  </div>
-
-  <div class="proprietor">
-
-    <span class="label">
-      Proprietor
-    </span>
-
-    <strong>
-      Clara Blackwood
-    </strong>
-
-    <span class="divider">
-      ◆
-    </span>
-
-    <span class="label">
-      Post Office
-    </span>
-
-    <strong>
-      BWWV1712
-    </strong>
-
+  <div class="intro">
+    Farm-grown goods, provisions, medicinal herbs, produce,
+    grains, spices and agricultural supplies for citizens and
+    businesses throughout Saddle Ridge County.
   </div>
 
 </header>
@@ -537,17 +476,16 @@
 <footer>
 
   <div class="footer-title">
-    Blackwood Farm Supply Co.
+    Blackwood Farming Supply Co.
   </div>
 
   <div class="footer-contact">
-    Proprietor: <strong>Clara Blackwood</strong>
-    &nbsp;◆&nbsp;
-    Post Office: <strong>BWWV1712</strong>
+    Emerald Ranch<br>
+    Owner: Clara Blackwood · PO: BWWV1712
   </div>
 
   <div class="footer-small">
-    Saddle Ridge County · Farm Goods · Produce · Agricultural Provisions
+    Saddle Ridge County · Farm Goods · Produce · Provisions
   </div>
 
 </footer>
@@ -557,550 +495,224 @@
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUjdVV1pWFRTlDyAsrJdl4vnHEwRIVjwdpAyhRJmQr4gkFkLOj9OyBdAwzNc20tjcCcpPW7NX03Uki/pub?gid=0&single=true&output=csv";
 
-
 function parseCSV(text) {
-
   const rows = [];
-
   let row = [];
   let cell = "";
   let insideQuotes = false;
 
   for (let i = 0; i < text.length; i++) {
-
     const char = text[i];
     const nextChar = text[i + 1];
 
     if (char === '"' && insideQuotes && nextChar === '"') {
-
       cell += '"';
       i++;
-
     }
-
     else if (char === '"') {
-
       insideQuotes = !insideQuotes;
-
     }
-
     else if (char === "," && !insideQuotes) {
-
       row.push(cell);
       cell = "";
-
     }
-
-    else if (
-      (char === "\n" || char === "\r") &&
-      !insideQuotes
-    ) {
-
+    else if ((char === "\n" || char === "\r") && !insideQuotes) {
       if (char === "\r" && nextChar === "\n") {
         i++;
       }
 
       row.push(cell);
 
-      if (
-        row.some(
-          value => value.trim() !== ""
-        )
-      ) {
-
+      if (row.some(value => value.trim() !== "")) {
         rows.push(row);
-
       }
 
       row = [];
       cell = "";
-
     }
-
     else {
-
       cell += char;
-
     }
-
   }
-
 
   if (cell.length || row.length) {
-
     row.push(cell);
 
-    if (
-      row.some(
-        value => value.trim() !== ""
-      )
-    ) {
-
+    if (row.some(value => value.trim() !== "")) {
       rows.push(row);
-
     }
-
   }
 
-
   return rows;
-
 }
 
-
-
 function slugify(text) {
-
   return text
     .toLowerCase()
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-
 }
 
-
-
 async function loadCatalog() {
-
   try {
-
-    const response =
-      await fetch(sheetURL);
+    const response = await fetch(sheetURL);
 
     if (!response.ok) {
-
-      throw new Error(
-        "Could not load Google Sheet."
-      );
-
+      throw new Error("Could not load Google Sheet.");
     }
 
+    const csv = await response.text();
+    const rows = parseCSV(csv);
 
-    const csv =
-      await response.text();
+    const headers = rows[0].map(header => header.trim());
 
-
-    const rows =
-      parseCSV(csv);
-
-
-    const headers =
-      rows[0].map(
-        header => header.trim()
-      );
-
-
-    const categoryIndex =
-      headers.indexOf("Category");
-
-    const productIndex =
-      headers.indexOf("Product");
-
-    const priceIndex =
-      headers.indexOf("Price");
-
-    const notesIndex =
-      headers.indexOf("Notes");
-
-    const imageIndex =
-      headers.indexOf("Image");
-
+    const categoryIndex = headers.indexOf("Category");
+    const productIndex = headers.indexOf("Product");
+    const priceIndex = headers.indexOf("Price");
+    const notesIndex = headers.indexOf("Notes");
+    const imageIndex = headers.indexOf("Image");
 
     const categories = {};
 
+    rows.slice(1).forEach(row => {
+      const category = row[categoryIndex]?.trim();
+      const product = row[productIndex]?.trim();
+      const price = row[priceIndex]?.trim();
+      const notes = row[notesIndex]?.trim();
+      const image = row[imageIndex]?.trim();
 
-    rows
-      .slice(1)
-      .forEach(row => {
+      if (!category || !product) {
+        return;
+      }
 
-        const category =
-          row[categoryIndex]?.trim();
+      if (!categories[category]) {
+        categories[category] = {
+          note: "",
+          products: []
+        };
+      }
 
-        const product =
-          row[productIndex]?.trim();
+      if (notes && !categories[category].note) {
+        categories[category].note = notes;
+      }
 
-        const price =
-          row[priceIndex]?.trim();
-
-        const notes =
-          row[notesIndex]?.trim();
-
-        const image =
-          row[imageIndex]?.trim();
-
-
-        if (!category || !product) {
-          return;
-        }
-
-
-        if (!categories[category]) {
-
-          categories[category] = {
-            note: "",
-            products: []
-          };
-
-        }
-
-
-        if (
-          notes &&
-          !categories[category].note
-        ) {
-
-          categories[category].note =
-            notes;
-
-        }
-
-
-        categories[category]
-          .products
-          .push({
-
-            product,
-            price,
-            image
-
-          });
-
+      categories[category].products.push({
+        product,
+        price,
+        image
       });
-
+    });
 
     buildNavigation(categories);
-
     buildCatalog(categories);
 
-
-    document
-      .getElementById("loading")
-      .style
-      .display = "none";
-
-
+    document.getElementById("loading").style.display = "none";
   }
-
   catch(error) {
-
     console.error(error);
 
+    document.getElementById("loading").style.display = "none";
 
-    document
-      .getElementById("loading")
-      .style
-      .display = "none";
-
-
-    document
-      .getElementById("catalog")
-      .innerHTML =
+    document.getElementById("catalog").innerHTML =
       '<div id="error">The farm catalog could not be opened at this time.</div>';
-
   }
-
 }
 
-
-
 function buildNavigation(categories) {
-
-  const nav =
-    document.getElementById(
-      "categoryNav"
-    );
-
+  const nav = document.getElementById("categoryNav");
 
   nav.innerHTML = "";
 
+  Object.keys(categories).forEach(category => {
+    const link = document.createElement("a");
 
-  Object
-    .keys(categories)
-    .forEach(category => {
+    link.href = "#" + slugify(category);
+    link.textContent = category;
 
-      const link =
-        document.createElement("a");
-
-
-      link.href =
-        "#" + slugify(category);
-
-
-      link.textContent =
-        category;
-
-
-      nav.appendChild(link);
-
-    });
-
+    nav.appendChild(link);
+  });
 }
 
-
-
 function buildCatalog(categories) {
-
-  const catalog =
-    document.getElementById(
-      "catalog"
-    );
-
+  const catalog = document.getElementById("catalog");
 
   catalog.innerHTML = "";
 
+  Object.entries(categories).forEach(([categoryName, categoryData]) => {
+    const section = document.createElement("section");
 
-  Object
-    .entries(categories)
-    .forEach(
-      ([categoryName, categoryData]) => {
+    section.className = "category";
+    section.id = slugify(categoryName);
 
+    const headingWrap = document.createElement("div");
+    headingWrap.className = "category-heading";
 
-        const section =
-          document.createElement(
-            "section"
-          );
+    const title = document.createElement("h2");
+    title.textContent = categoryName;
 
+    headingWrap.appendChild(title);
+    section.appendChild(headingWrap);
 
-        section.className =
-          "category";
+    if (categoryData.note) {
+      const note = document.createElement("p");
 
+      note.className = "category-note";
+      note.textContent = categoryData.note;
 
-        section.id =
-          slugify(categoryName);
+      section.appendChild(note);
+    }
 
+    const productGrid = document.createElement("div");
+    productGrid.className = "products";
 
+    categoryData.products.forEach(item => {
+      const productCard = document.createElement("article");
+      productCard.className = "product";
 
-        const headingWrap =
-          document.createElement(
-            "div"
-          );
+      if (item.image) {
+        const imageWrap = document.createElement("div");
+        imageWrap.className = "product-image-wrap";
 
+        const img = document.createElement("img");
 
-        headingWrap.className =
-          "category-heading";
+        img.src = item.image;
+        img.alt = item.product;
+        img.className = "product-image";
+        img.loading = "lazy";
 
+        imageWrap.appendChild(img);
+        productCard.appendChild(imageWrap);
+      }
 
-        const title =
-          document.createElement(
-            "h2"
-          );
+      const productName = document.createElement("h3");
+      productName.textContent = item.product;
 
+      productCard.appendChild(productName);
 
-        title.textContent =
-          categoryName;
+      const productFooter = document.createElement("div");
+      productFooter.className = "product-footer";
 
+      const priceLabel = document.createElement("span");
+      priceLabel.className = "price-label";
+      priceLabel.textContent = "Price";
 
-        headingWrap
-          .appendChild(title);
+      const price = document.createElement("span");
+      price.className = "price";
+      price.textContent = item.price;
 
+      productFooter.appendChild(priceLabel);
+      productFooter.appendChild(price);
 
-        section
-          .appendChild(
-            headingWrap
-          );
+      productCard.appendChild(productFooter);
 
+      productGrid.appendChild(productCard);
+    });
 
-
-        if (categoryData.note) {
-
-          const note =
-            document.createElement(
-              "p"
-            );
-
-
-          note.className =
-            "category-note";
-
-
-          note.textContent =
-            categoryData.note;
-
-
-          section
-            .appendChild(note);
-
-        }
-
-
-
-        const productGrid =
-          document.createElement(
-            "div"
-          );
-
-
-        productGrid.className =
-          "products";
-
-
-
-        categoryData
-          .products
-          .forEach(item => {
-
-
-            const productCard =
-              document.createElement(
-                "article"
-              );
-
-
-            productCard.className =
-              "product";
-
-
-
-            if (item.image) {
-
-
-              const imageWrap =
-                document.createElement(
-                  "div"
-                );
-
-
-              imageWrap.className =
-                "product-image-wrap";
-
-
-              const img =
-                document.createElement(
-                  "img"
-                );
-
-
-              img.src =
-                item.image;
-
-
-              img.alt =
-                item.product;
-
-
-              img.className =
-                "product-image";
-
-
-              img.loading =
-                "lazy";
-
-
-              imageWrap
-                .appendChild(img);
-
-
-              productCard
-                .appendChild(
-                  imageWrap
-                );
-
-            }
-
-
-
-            const productName =
-              document.createElement(
-                "h3"
-              );
-
-
-            productName.textContent =
-              item.product;
-
-
-            productCard
-              .appendChild(
-                productName
-              );
-
-
-
-            const footer =
-              document.createElement(
-                "div"
-              );
-
-
-            footer.className =
-              "product-footer";
-
-
-
-            const priceLabel =
-              document.createElement(
-                "span"
-              );
-
-
-            priceLabel.className =
-              "price-label";
-
-
-            priceLabel.textContent =
-              "Price";
-
-
-
-            const price =
-              document.createElement(
-                "span"
-              );
-
-
-            price.className =
-              "price";
-
-
-            price.textContent =
-              item.price;
-
-
-
-            footer
-              .appendChild(
-                priceLabel
-              );
-
-
-            footer
-              .appendChild(
-                price
-              );
-
-
-            productCard
-              .appendChild(
-                footer
-              );
-
-
-            productGrid
-              .appendChild(
-                productCard
-              );
-
-          });
-
-
-
-        section
-          .appendChild(
-            productGrid
-          );
-
-
-        catalog
-          .appendChild(
-            section
-          );
-
-      });
-
+    section.appendChild(productGrid);
+    catalog.appendChild(section);
+  });
 }
-
-
 
 loadCatalog();
 
