@@ -8,7 +8,7 @@
 
   <style>
     body {
-      font-family: Georgia, serif;
+      font-family: Georgia, "Times New Roman", serif;
       background: #efe3c2;
       color: #2f2418;
       margin: 0;
@@ -17,7 +17,7 @@
 
     header {
       text-align: center;
-      padding: 40px 20px 25px;
+      padding: 38px 20px 24px;
       border-bottom: 3px solid #4b3825;
     }
 
@@ -27,40 +27,68 @@
     }
 
     header p {
-      margin-top: 8px;
+      margin: 8px 0 0;
       font-size: 18px;
+    }
+
+    nav {
+      text-align: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid #806b4e;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 5px 8px;
+      color: #2f2418;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     main {
       max-width: 1000px;
       margin: auto;
-      padding: 30px 20px;
+      padding: 30px 20px 60px;
     }
 
     .category {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .category h2 {
+      font-size: 30px;
+      margin-bottom: 5px;
       border-bottom: 2px solid #4b3825;
       padding-bottom: 8px;
+    }
+
+    .category-note {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #5f4c36;
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
     .product {
       border: 1px solid #806b4e;
-      background: rgba(255,255,255,.25);
-      padding: 18px;
+      background: rgba(255,255,255,.22);
+      padding: 16px;
       border-radius: 4px;
     }
 
     .product h3 {
-      margin-top: 0;
+      margin: 0 0 10px;
+      font-size: 19px;
     }
 
     .price {
@@ -68,9 +96,25 @@
       font-weight: bold;
     }
 
-    #loading {
+    .product-image {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    #loading,
+    #error {
       text-align: center;
       font-size: 18px;
+      padding: 40px 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 20px;
+      border-top: 2px solid #4b3825;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -82,20 +126,80 @@
   <p>Farm Supply & Agricultural Goods</p>
 </header>
 
+<nav id="categoryNav"></nav>
+
 <main>
-
-  <div id="loading">
-    Loading farm catalog...
-  </div>
-
+  <div id="loading">Loading farm catalog...</div>
   <div id="catalog"></div>
-
 </main>
+
+<footer>
+  Saddle Ridge County Farm Supply
+</footer>
 
 <script>
 
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUjdVV1pWFRTlDyAsrJdl4vnHEwRIVjwdpAyhRJmQr4gkFkLOj9OyBdAwzNc20tjcCcpPW7NX03Uki/pub?gid=0&single=true&output=csv";
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let insideQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const nextChar = text[i + 1];
+
+    if (char === '"' && insideQuotes && nextChar === '"') {
+      cell += '"';
+      i++;
+    }
+    else if (char === '"') {
+      insideQuotes = !insideQuotes;
+    }
+    else if (char === "," && !insideQuotes) {
+      row.push(cell);
+      cell = "";
+    }
+    else if ((char === "\n" || char === "\r") && !insideQuotes) {
+      if (char === "\r" && nextChar === "\n") {
+        i++;
+      }
+
+      row.push(cell);
+
+      if (row.some(value => value.trim() !== "")) {
+        rows.push(row);
+      }
+
+      row = [];
+      cell = "";
+    }
+    else {
+      cell += char;
+    }
+  }
+
+  if (cell.length || row.length) {
+    row.push(cell);
+
+    if (row.some(value => value.trim() !== "")) {
+      rows.push(row);
+    }
+  }
+
+  return rows;
+}
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
 
 async function loadCatalog() {
 
@@ -103,23 +207,161 @@ async function loadCatalog() {
 
     const response = await fetch(sheetURL);
 
+    if (!response.ok) {
+      throw new Error("Could not load Google Sheet.");
+    }
+
     const csv = await response.text();
+    const rows = parseCSV(csv);
 
-    console.log(csv);
+    const headers = rows[0].map(header => header.trim());
 
-    document.getElementById("loading").innerHTML =
-      "Google Sheet connected successfully.";
+    const categoryIndex = headers.indexOf("Category");
+    const productIndex = headers.indexOf("Product");
+    const priceIndex = headers.indexOf("Price");
+    const notesIndex = headers.indexOf("Notes");
+    const imageIndex = headers.indexOf("Image");
+
+    const categories = {};
+
+    rows.slice(1).forEach(row => {
+
+      const category = row[categoryIndex]?.trim();
+      const product = row[productIndex]?.trim();
+      const price = row[priceIndex]?.trim();
+      const notes = row[notesIndex]?.trim();
+      const image = row[imageIndex]?.trim();
+
+      if (!category || !product) {
+        return;
+      }
+
+      if (!categories[category]) {
+        categories[category] = {
+          note: "",
+          products: []
+        };
+      }
+
+      if (notes && !categories[category].note) {
+        categories[category].note = notes;
+      }
+
+      categories[category].products.push({
+        product,
+        price,
+        image
+      });
+
+    });
+
+    buildNavigation(categories);
+    buildCatalog(categories);
+
+    document.getElementById("loading").style.display = "none";
 
   }
 
   catch(error) {
 
-    document.getElementById("loading").innerHTML =
-      "Unable to load farm catalog.";
-
     console.error(error);
 
+    document.getElementById("loading").style.display = "none";
+
+    document.getElementById("catalog").innerHTML =
+      '<div id="error">Unable to load the farm catalog.</div>';
+
   }
+
+}
+
+function buildNavigation(categories) {
+
+  const nav = document.getElementById("categoryNav");
+
+  nav.innerHTML = "";
+
+  Object.keys(categories).forEach(category => {
+
+    const link = document.createElement("a");
+
+    link.href = "#" + slugify(category);
+    link.textContent = category;
+
+    nav.appendChild(link);
+
+  });
+
+}
+
+function buildCatalog(categories) {
+
+  const catalog = document.getElementById("catalog");
+
+  catalog.innerHTML = "";
+
+  Object.entries(categories).forEach(([categoryName, categoryData]) => {
+
+    const section = document.createElement("section");
+
+    section.className = "category";
+    section.id = slugify(categoryName);
+
+    const title = document.createElement("h2");
+    title.textContent = categoryName;
+
+    section.appendChild(title);
+
+    if (categoryData.note) {
+
+      const note = document.createElement("p");
+
+      note.className = "category-note";
+      note.textContent = categoryData.note;
+
+      section.appendChild(note);
+
+    }
+
+    const productGrid = document.createElement("div");
+    productGrid.className = "products";
+
+    categoryData.products.forEach(item => {
+
+      const productCard = document.createElement("div");
+      productCard.className = "product";
+
+      if (item.image) {
+
+        const img = document.createElement("img");
+
+        img.src = item.image;
+        img.alt = item.product;
+        img.className = "product-image";
+
+        productCard.appendChild(img);
+
+      }
+
+      const productName = document.createElement("h3");
+      productName.textContent = item.product;
+
+      const price = document.createElement("div");
+      price.className = "price";
+      price.textContent = item.price;
+
+      productCard.appendChild(productName);
+      productCard.appendChild(price);
+
+      productGrid.appendChild(productCard);
+
+    });
+
+    section.appendChild(productGrid);
+
+    catalog.appendChild(section);
+
+  });
 
 }
 
